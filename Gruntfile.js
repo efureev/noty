@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.initConfig({
 
         bump  : {
@@ -25,8 +25,8 @@ module.exports = function(grunt) {
 
         wrap: {
             basic: {
-                src: 'js/noty/packaged/jquery.noty.packaged.js',
-                dest: 'js/noty/packaged/jquery.noty.packaged.js',
+                src    : 'js/noty/packaged/jquery.noty.packaged.js',
+                dest   : 'js/noty/packaged/jquery.noty.packaged.js',
                 options: {
                     wrapper: ["!function(root, factory) {\n\t if (typeof define === 'function' && define.amd) {\n\t\t define(['jquery'], factory);\n\t } else if (typeof exports === 'object') {\n\t\t module.exports = factory(require('jquery'));\n\t } else {\n\t\t factory(root.jQuery);\n\t }\n}(this, function($) {\n", "\nreturn window.noty;\n\n});"]
                 }
@@ -34,11 +34,6 @@ module.exports = function(grunt) {
         },
 
         uglify: {
-            //options : {
-            //    preserveComments: function(a) {
-            //        return !!(a.start.file == 'js/noty/jquery.noty.js' && a.start.line == 11);
-            //    }
-            //},
             minifyJS: {
                 files: {
                     'js/noty/packaged/jquery.noty.packaged.min.js': ['js/noty/packaged/jquery.noty.packaged.js']
@@ -49,7 +44,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-release-component');
     grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('grunt-wrap');
 

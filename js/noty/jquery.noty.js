@@ -1,6 +1,6 @@
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.3.8
+ @version version: 2.3.9
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -134,7 +134,7 @@
                 self.options.callback.onShow.apply(self);
 
             if (typeof self.options.animation.open == 'string') {
-                self.$bar.css('height', self.$bar.innerHeight());
+                self.$bar.css('min-height', self.$bar.innerHeight());
                 self.$bar.on('click',function(e){
                     self.wasClicked = true;
                 });
